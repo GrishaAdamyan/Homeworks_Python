@@ -14,16 +14,13 @@ word = input()
 if len(word) % 2 == 0:
     for i in range(len(word)):
         if word.count(word[i]) % 2 == 1:
-            print('No')
+            print(False)
             break            
     else:
-        print('Yes')
+        print(True)
 else:
     count = 0
     for i in range(len(word)):
         if word.count(word[i]) % 2 == 1:
             count += 1
-    if count == 1:
-        print('Yes')
-    else:
-        print('No')
+    print(count == 1)
