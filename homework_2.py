@@ -10,17 +10,9 @@ for number in list1:
 print(dictionary)
 
 # 2
-word = input()
-if len(word) % 2 == 0:
-    for i in range(len(word)):
-        if word.count(word[i]) % 2 == 1:
-            print(False)
-            break            
-    else:
-        print(True)
-else:
-    count = 0
-    for i in range(len(word)):
-        if word.count(word[i]) % 2 == 1:
-            count += 1
-    print(count == 1)
+string = input()
+odd_symbols = 0
+for symbol in set(string):
+    if string.count(symbol) % 2 == 1:
+        odd_symbols += 1
+print(len(string) % 2 == odd_symbols)
