@@ -7,13 +7,11 @@ for i in range(n):
     lst.append([mark,name])
 lst.sort()
 
-
 i = 0
 low = lst[i][0]
 while i <= len(lst)-1 and lst[i][0] == low:
     i += 1
     print(lst[i])
-
 
 need = lst[i][0] 
 while i <= len(lst)-1 and lst[i][0] == need:
