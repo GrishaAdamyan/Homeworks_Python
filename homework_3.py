@@ -1,23 +1,16 @@
 # 1
 n = int(input())
-lst = []
+list1 = []
 for i in range(n):
     name = input("name: ")
     mark = float(input("mark: "))
-    lst.append([mark,name])
-lst.sort()
-i = lst[0][0].count(lst[:][0])
-low = lst[i][0]
-while i <= len(lst)-1 and lst[i][0] == low:
-    print(lst[i][1])
+    list1.append([mark,name])
+list2 = []
+for j in range(n):
+    list2.append(list1[j][0])
+list2.sort()
+low = list2.count(list2[0])
+i = low
+while i <= len(list1)-1 and list2[i] == list2[low]:
+    print(list1[i][1])
     i += 1
-#i = 0
-#low = lst[i][0]
-#while i <= len(lst)-1 and lst[i][0] == low:
-    #i += 1
-    #print(lst[i])
-
-#need = lst[i][0] 
-#while i <= len(lst)-1 and lst[i][0] == need:
-    #print(lst[i][1]) 
-    #i += 1
