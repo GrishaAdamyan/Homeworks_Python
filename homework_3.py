@@ -6,14 +6,18 @@ for i in range(n):
     mark = float(input("mark: "))
     lst.append([mark,name])
 lst.sort()
-
-i = 0
+i = lst[0][0].count(lst[:][0])
 low = lst[i][0]
 while i <= len(lst)-1 and lst[i][0] == low:
+    print(lst[i][1])
     i += 1
-    print(lst[i])
+#i = 0
+#low = lst[i][0]
+#while i <= len(lst)-1 and lst[i][0] == low:
+    #i += 1
+    #print(lst[i])
 
-need = lst[i][0] 
-while i <= len(lst)-1 and lst[i][0] == need:
-    print(lst[i][1]) 
-    i += 1
+#need = lst[i][0] 
+#while i <= len(lst)-1 and lst[i][0] == need:
+    #print(lst[i][1]) 
+    #i += 1
