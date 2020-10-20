@@ -18,8 +18,18 @@ list2 = []
 for i in range(len(superString)):
     if superString[i] in subString:
         list1.append(subString.pop(subString.index(superString[i])))
-        k = i
-        while k < len(superString):
+        for k in range(i , len(superString)):
             if superString[k] in subString:
                 list1.append(subString.pop(subString.index(superString[k])))
-            k += 1
+        if len(subString) != 0:
+            subString = list1
+            list1 = []
+        else:
+            list2.append(superString[i:(k+1)])
+            subString = list1
+            list1 = []
+minn = 0
+for j in range(1, len(list2)):
+    if len(list2[j]) < len(list2[minn]):
+        minn = j
+print(list2[minn])
