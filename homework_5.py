@@ -19,18 +19,18 @@ while i < len(xmbak1) and j < len(xmbak1):
     if dict1[xmbak1[i][0]] != len(list1[j]):
         j += 1
     else:
-        for k in range(len(list1[i])):
-            if list1[i][k] in dict2:
-                dict2[list1[i][k]] += xmbak2[i]
+        for k in range(len(list1[j])):
+            if list1[j][k] in dict2:
+                dict2[list1[j][k]] = dict2[list1[j][k]] + xmbak2[i]
             else:
-                dict2[list1[i][k]] = xmbak2[i]
+                dict2[list1[j][k]] = xmbak2[i]
         i += 1
         j = 0
 names = input().split(', ')
 list2 = []
 for i in range(len(names)):
     list2.append(len(dict2[names[i]]))
-
+print(': '.join([names[list2.index(min(list2))]] + dict2[names[list2.index(min(list2))]]))
 
 # 2
 #check_number = 1
