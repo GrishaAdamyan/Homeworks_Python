@@ -18,27 +18,37 @@ def answer_queries(k, *query_counts):
     return count + 1
 
 
-print(answer_queries(5, 5, 4))
+print(answer_queries(1, 100))
 
 # 2
 def non_decreasing_sequence(*nums):
     list1 = list(nums)
-    for i in range(len(list1)):
-        list1[i] = 0 - list1[i]
-        if list1 == sorted(list1):
-            return 'Yes', list1
-        else:
-            list1[i] = 0 - list1[i]
-    for i in range(len(list1)):
-        for j in range(len(list1)):
-            list1[i] = 0 - list1[i]
-            list1[j] = 0 - list1[j]
-            if list1 == sorted(list1):
-                return 'Yes', list1
-            else:
-                list1[i] = 0 - list1[i]
-                list1[j] = 0 - list1[j]
+    for i in range(1, len(list1)):
+        if abs(list1[i - 1]) >= abs(list1[i]):
+            if list1[i - 1] >= 0:
+                list1[i - 1] = -list1[i - 1]
+        elif abs(list1[i - 1]) < abs(list1[i]):
+            if list1[i] < 0:
+                list1[i] = abs(list1[i])
+    if list1 == sorted(list1):
+        return 'Yes', list1
     return 'No'
+    #for i in range(len(list1)):
+        #list1[i] = 0 - list1[i]
+        #if list1 == sorted(list1):
+            #return 'Yes', list1
+        #else:
+            #list1[i] = 0 - list1[i]
+    #for i in range(len(list1)):
+        #for j in range(len(list1)):
+            #list1[i] = 0 - list1[i]
+            #list1[j] = 0 - list1[j]
+            #if list1 == sorted(list1):
+                #return 'Yes', list1
+            #else:
+                #list1[i] = 0 - list1[i]
+                #list1[j] = 0 - list1[j]
+    #return 'No'
 
 
-print(non_decreasing_sequence(1, 1, 0))
+print(non_decreasing_sequence(1, 1, 1))
