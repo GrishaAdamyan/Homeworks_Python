@@ -4,20 +4,21 @@ def answer_queries(k, *query_counts):
     list1 = list(query_counts)
     for i in range(len(list1)):
         if i != len(list1) - 1:
-            if k >= list1[i]:
+            if k - list1[i] > 0:
                 return count
             elif k < list1[i]:
                 list1[i + 1] += list1[i] - k
             count += 1
         else:
-            if k >= list1[i]:
+            if k - list1[i] > 0:
                 return count
             elif k < list1[i]:
                 count += (list1[i]) // k
                 return count
+    return count + 1
 
 
-print(answer_queries(5, 5, 5))
+print(answer_queries(5, 5, 4))
 
 # 2
 def non_decreasing_sequence(*nums):
