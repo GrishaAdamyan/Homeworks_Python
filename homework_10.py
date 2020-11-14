@@ -1,7 +1,6 @@
 import os
 def create_a_testing_work_environment(initial_directory_path):
-    path = os.path.join(initial_directory_path, create_a_testing_work_environment.DFD['Dirname'][0])
-    os.mkdir(path)
+    os.mkdir(os.path.join(initial_directory_path, create_a_testing_work_environment.DFD['Dirname'][0]))
     for i in range(len(create_a_testing_work_environment.DFD['Dirname'])):
         if create_a_testing_work_environment.DFD['Files'][i]:
             for elem in create_a_testing_work_environment.DFD['Files'][i]:
@@ -24,3 +23,19 @@ create_a_testing_work_environment.DFD = {
                     None, None, ['test/dir_2/dir_6', 'test/dir_2/dir_7'], None, None]}
 
 create_a_testing_work_environment('C:/Users/Public')
+
+def delete_all_the_files_and_directories_recursively(directory):
+    for elem in os.listdir(directory):
+        new_path = os.path.join(directory, elem)
+        if os.path.isfile(new_path):
+            os.remove(new_path)
+            if len(os.listdir(directory)) == 0 and directory != 'C:/Users/Public/test':
+                os.rmdir(directory)
+        elif os.path.isdir(new_path):
+            if len(os.listdir(new_path)) == 0:
+                os.rmdir(new_path)
+            else:
+                delete_all_the_files_and_directories_recursively(new_path)
+
+
+delete_all_the_files_and_directories_recursively('C:/Users/Public/test')
