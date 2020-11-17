@@ -16,8 +16,10 @@ print(rotateImage([[10,9,6,3,7],
 
 # 2
 def digitsProduct(product):
-    if 0 <= product < 10 and type(product) == int:
+    if 1 <= product < 10 and type(product) == int:
         return product
+    elif product == 0:
+        return 10
     else:
         str1 = ''
         tiv = 9
@@ -32,4 +34,4 @@ def digitsProduct(product):
         return int(''.join(reversed(list(str1))))
 
 
-print(digitsProduct(1))
+print(digitsProduct(0))
