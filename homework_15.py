@@ -46,9 +46,9 @@ class TicTacToe:
     def __init__(self, list1):
         self.list1 = list1
     def new_game(self, list1):
-        list1 = [['-', '-', '-'],
-                 ['-', '-', '-'],
-                 ['-', '-', '-'],]
+        self.list1 = [['-', '-', '-'],
+                      ['-', '-', '-'],
+                      ['-', '-', '-'],]
         return list1
     def get_field(self, list1):
         print(list1)
@@ -80,7 +80,7 @@ class TicTacToe:
         if count[0] != 9:
             return None
         return 'd'
-    def make_move(self, row, col, list1):
+    def make_move(self, row, col, list1, list2):
         if list1[row][col] != '-':
             print(f'Cell {row}, {col} is already filled')
         else:
@@ -88,3 +88,16 @@ class TicTacToe:
                 list1[row][col] = 'x'
             else:
                 list1[row][col] = 'o'
+        if list1[row].count('x') == 3:
+            print('X-player won!')
+        elif list1[row].count('o') == 3:
+            print('O-player won!')
+        elif list2[col].count('x') == 3:
+            print('X-player won!')
+        elif list2[col].count('o') == 3:
+            print('O-player won!')
+        count = [sum(list1[i].count('x') for i in range(len(list1)))] + [sum(list1[i].count('o') for i in range(len(list1)))]
+        if count[0] != 9:
+            print('Continue playing')
+        else:
+            print('Draw', 'Game over', sep='/n')
