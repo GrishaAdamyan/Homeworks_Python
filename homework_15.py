@@ -43,8 +43,10 @@ user.describe()
 
 # 2
 class TicTacToe:
-    def __init__(self, list1):
-        self.list1 = list1
+    def __init__(self):
+        self.list1 = [['-', '-', '-'],
+                      ['-', '-', '-'],
+                      ['-', '-', '-'],]
     def new_game(self, list1):
         self.list1 = [['-', '-', '-'],
                       ['-', '-', '-'],
