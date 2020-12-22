@@ -4,7 +4,7 @@ class Weapon:
         self.name = name
         self.damage = damage
         self.range = range
-    def Hit(self, actor, target):
+    def hit(self, actor, target):
         if target.is_alive():
             first = actor.get_coords()
             second = target.get_coords()
